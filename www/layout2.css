@@ -1,0 +1,102 @@
+/* adapted from http://bluerobot.com/web/layouts/layout2.html */
+
+body {
+	margin:20px;
+	padding:20px;
+	font-family:verdana, arial, helvetica, sans-serif;
+	color:#333;
+	}
+h1, h2, h3 {
+	margin:0px 0px 15px 0px;
+	padding:0px;
+	font-weight:900;
+	color:black;
+	}
+h1 {
+	font-size:28px;
+	line-height:28px;
+	}
+h2 {
+	font-size:16px;
+	line-height:16px;
+	}
+h3 {
+	font-size:14px;
+	line-height:14px;
+	}
+p {
+	font:13px/18px verdana, arial, helvetica, sans-serif;
+	margin:0px 0px 12px 0px;
+	padding:0px;
+	}
+
+ul, ol {
+	margin-left:0em;
+	padding-left:1em;
+	}
+li {
+	font:13px/18px verdana, arial, helvetica, sans-serif;
+	margin:0px 0px 4px 0px;
+	padding:0px;
+	}
+
+a {
+	color:#09c;
+	font-size:13px;
+	text-decoration:none;
+	font-weight:600;
+	font-family:verdana, arial, helvetica, sans-serif;
+	}
+a:link {color:#09c;}
+a:visited {color:#07a;}
+a:hover {background-color:#eee;}
+
+#Content {
+	margin:0px 12em 10px 10px;
+	padding:10px;
+	}
+
+#Menu {
+	position:fixed;
+	/* Windows versions MSIE 5 5.5 and 6 ignore the _, fixing their lack
+	   of support for position:fixed (well, fixing after a fashion) */
+	_position:absolute;
+	top:40px;
+	right:20px;
+	width:10em;
+	padding:1em;
+	background-color:#eee;
+	border:1px dashed #999;
+	line-height:17px;
+/* MSIE 5 and 5.5 misparse get the CSS box model wrong, so need different
+   values - they also misparse the following as the end "}": */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width:8em;
+	}
+/* "Be nice to Opera 5" and other browsers which misparse the above but get
+   the box model correct, and understand selectors. */
+body>#Menu {width:8em;}
+
+#Menu a:hover {background-color:#006;color:#fff;}
+
+#current {
+	color:black;
+	font-size:13px;
+	text-decoration:none;
+	font-weight:600;
+	font-family:verdana, arial, helvetica, sans-serif;
+}
+
+#Content>#info {
+	position:fixed;
+	/* Windows versions MSIE 5 5.5 and 6 ignore the _, fixing their lack
+	   of support for position:fixed (well, fixing after a fashion) */
+	_position:absolute;
+	top: 10px;
+	right: 20px;
+}
+
+#prompt {
+	color:silver;
+}

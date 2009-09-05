@@ -1,0 +1,49 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="layout2.css" />
+<meta name="verify-v1" content="fLrstifljn14UDl+w2ObLjpkSFnDgme7dU06PPz7s1s=" >
+<title>AFTS Public Submission Search</title>
+<body>
+<center>
+<h1>AFTS Public Submission Search</h1> 
+
+<FORM NAME=P METHOD=GET 
+ACTION="/cgi-bin/omega" TARGET="_top">
+<INPUT NAME=P VALUE="" SIZE=65>
+<INPUT TYPE=SUBMIT VALUE="Search">
+<br/>
+<INPUT TYPE=radio NAME=DEFAULTOP VALUE=or CHECKED> Matching any words
+<INPUT TYPE=radio NAME=DEFAULTOP VALUE=and > Matching all words
+
+
+
+
+</center><br>
+<INPUT TYPE=hidden NAME=DB VALUE="default">
+
+
+<INPUT TYPE=hidden NAME=FMT VALUE="topterms">
+
+
+<INPUT TYPE=hidden NAME=xDB VALUE="default">
+<INPUT TYPE=hidden NAME=xFILTERS VALUE="--O">
+
+
+
+
+</FORM>
+
+<p><b>Important Caveat:</b> The HTML documents extracted from the original PDF have lost formatting information, so some meaning may have become altered. Please consult the original PDF document at <a href="http://taxreview.treasury.gov.au">the AFTS website</a> for the authoritative text.</p>
+
+<p><a href="implementation-notes.html">Implementation Notes</a></p>
+<p><a href="implementation-notes.html">Contact</a></p>
+<p>
+Data source: <a href="http://taxreview.treasury.gov.au">Australia's Future Tax System</a> at treasury.gov.au
+<br/>
+<div><center><a href="http://taxreview.treasury.gov.au"><img src="AFTS_logo.jpg"></center></a></div>
+</p>
+
+<div align=right><i><small><a href="http://www.xapian.org/">Xapian - xapian-omega 1.0.13</a></small></i></div>
+
+</body>
+</html>
