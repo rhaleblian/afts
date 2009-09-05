@@ -3,21 +3,25 @@
 # make upload
 # make index
 
-SSHREMOTE=haleblia@haleblian.com
+REMOTE=haleblia@haleblian.com
+BASEHREF=www/ray/taxreview
+TEMPLATES=opt/var/lib/omega/templates
+DB=opt/var/lib/omega/data/default
 
 default:
-	echo Available rules: sync upload index
+	echo Available rules: sync upload index install
 	echo See Makefile.
 
 sync:
-	doc-sync
+	./doc-sync
 
 upload:
-	doc-upload
+	./doc-upload
 
 index:
-	ssh haleblia@haleblian.com omindex
+	ssh haleblia@haleblian.com omindex --db $(DB) www/ray taxreview/html
 
 install:
-	rsync -v www/ $(SSHREMOTE):www/ray/taxreview/
+	rsync -dv --delete www/* $(REMOTE):$(BASEHREF)/
+	scp omega/templates/afts $(REMOTE):$(TEMPLATES)/
 
