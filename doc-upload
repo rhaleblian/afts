@@ -1,2 +1,0 @@
-rsync -rv www/html/ haleblia@haleblian.com:www/ray/taxreview/html/
-

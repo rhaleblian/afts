@@ -13,10 +13,10 @@ default:
 	echo See Makefile.
 
 sync:
-	./doc-sync
+	./doc-sync.py
 
 upload:
-	./doc-upload
+	rsync -rv www/html/ haleblia@haleblian.com:www/ray/taxreview/html/
 
 index:
 	ssh haleblia@haleblian.com omindex --db $(DB) www/ray taxreview/html
