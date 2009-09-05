@@ -31,52 +31,55 @@ $def{NEXT,$if{$ne{$last,$msize},<INPUT TYPE=submit NAME="&gt;" VALUE="Next">}}
 
 <head>
 <link rel="stylesheet" type="text/css" href="/taxreview/layout2.css"/>
-<title>$if{$query,AFTS Submissions Search: $html{$query},AFTS Submissions Search}</title>
+<title>$if{$query,AFTS Public Submission Search: $html{$query},AFTS Public Submission Search}</title>
 $if{$opt{topterms},$include{inc/toptermsjs}}
 </head>
 <body>
-<center><h1>AFTS Submissions Search</h1></center>
+<center>
+<h1>AFTS Public Submission Search</h1>
+</center>
+<p><b>Important Caveat:</b> Conversion of original PDF to HTML loses formatting information, so some meaning may have become altered. Please consult the original PDF document at <a href="http://taxreview.treasury.gov.au">the AFTS website</a> for the authoritative text.</p>
+<center>
 <FORM NAME=P METHOD=GET 
 ACTION="$html{$or{$env{SCRIPT_NAME},omega}}" TARGET="_top">
-<center>
 <INPUT NAME=P VALUE="$html{$query}" SIZE=65>
 <INPUT TYPE=SUBMIT VALUE="Search">
-<hr>
+<br/>
 $if{,$include{inc/anyalldropbox},$include{inc/anyallradio}}
 $if{$opt{topterms},
- <div title="Suggested terms to add to your query"
- style="text-align:left;background:#cfc;border:1px solid green;padding:2px;font:11px verdana$. arial$. helvetica$. sans-serif;">
+ <p><div title="Suggested terms to add to your query"
+ style="text-align:left;background:#ccf;border:0px solid green;padding:2px;font:11px verdana$. arial$. helvetica$. sans-serif;">
  $map{$topterms,<span style="white-space:nowrap"><INPUT TYPE=checkbox NAME=X VALUE="$prettyterm{$_}" onClick="C(this)">$prettyterm{$_}</span> }
  <BR><NOSCRIPT><INPUT TYPE=hidden NAME=ADD VALUE=1></NOSCRIPT>
- </div>
+ </div></p>
 }
 $or{$html{$error},
 $if{$eq{$msize,0},
 $if{$query,No documents match your query,
 <hr>Searching $nice{$dbsize} documents
 },
+<hr>
 $if{$not{$msizeexact},
  $nice{$add{$topdoc,1}}-$nice{$last} of about $nice{$msize} matches,
  $if{$and{$eq{$last,$msize},$eq{$topdoc,0}},
   All $nice{$msize} matches,
   $nice{$add{$topdoc,1}}$if{$ne{$add{$topdoc,1},$last},-$nice{$last}} of exactly $nice{$msize} matches}
 }
-<hr>
 </center>
 $list{$map{$queryterms,$list{$html{$uniq{$unstem{$_}}},<b>,</b>/<b>,</b>}:&nbsp;$nice{$freq{$_}}},Term frequencies: ,$. ,}
 <br><small>Search took $time seconds</small>
 <table>
 $hitlist{<tr><td valign=top>
 ${<IMG SRC="/icons/omega/score-$div{$percentage,10}.png" ALT="$percentage%" HEIGHT=16 WIDTH=32>}
-<div title="$percentage%" style='float:left;width:60px;height:10px;border:1px solid black;margin-top:4px;'>
+<!--<div title="$percentage%" style='float:left;width:60px;height:10px;border:1px solid black;margin-top:4px;'>
 <div style='width:$div{$mul{$percentage,6},10}px; height:10px; background-color: red;'>
-</div></div>
-<div style='float:left;margin-top:2px;font-size:x-small;'>
+</div></div>-->
+<div style='float:left;margin-top:2px;font-size:x-small;width:60px'>
 <span title="$html{$date{$field{modtime},%Y-%m-%d %H:%M:%S}}">
 Modified:<br><b>$html{$date{$field{modtime},%Y-%m-%d}}</b></span><br>
 $if{$field{language},Language: <b>$html{$field{language}}</b><br>}
 $if{$field{size},<span title="$html{$field{size}} bytes">Size: <b>$html{$filesize{$field{size}}}</b></span><br>}
-<div title="Mark this document as relevant" style="float:left;background-color:#cfc;border:1px solid green;margin-top:2px;">
+<div title="Mark this document as relevant" style="float:left;background-color:#ccf;border:0px solid green;margin-top:2px;">
 <input type=CHECKBOX name=R value=$id$if{$relevant, checked}>
 </div>
 </div>
@@ -124,6 +127,7 @@ ${Preserve any B filters used - this needs modifying if you modify this template
   to have B on radio buttons, SELECT, etc}
 $map{$cgilist{B},<INPUT TYPE=hidden NAME=B VALUE="$html{$_}">}
 </FORM>
+<p><a href="/taxreview">Home</a> - <a href="/taxreview/implementation-notes.html">Notes and Contact</a></p>
 <hr><div align=right><i><small><a href="http://www.xapian.org/">$html{$version}</a></small></i></div>
 </body>
 </html>
