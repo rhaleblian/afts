@@ -31,7 +31,7 @@ $def{SPAGE,<INPUT TYPE=submit NAME="[" VALUE="$1" DISABLED=disabled>}
 $def{NEXT,$if{$ne{$last,$msize},<INPUT TYPE=submit NAME="&gt;" VALUE="Next">}}
 
 <head>
-<link rel="stylesheet" type="text/css" href="/taxreview/layout2.css"/>
+<link rel="stylesheet" type="text/css" href="/taxreview/layout.css"/>
 <title>$if{$query,AFTS Public Submission Search: $html{$query},AFTS Public Submission Search}</title>
 $if{$opt{topterms},$include{inc/toptermsjs}}
 </head>
