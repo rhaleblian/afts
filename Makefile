@@ -1,3 +1,9 @@
+# The index updating workflow is
+# make sync
+# make upload
+# make index
+
+SSHREMOTE=haleblia@haleblian.com
 
 default:
 	echo Available rules: sync upload index
@@ -7,8 +13,11 @@ sync:
 	doc-sync
 
 upload:
-	doc-index
+	doc-upload
 
 index:
 	ssh haleblia@haleblian.com omindex
+
+install:
+	rsync -v www/ $(SSHREMOTE):www/ray/taxreview/
 
