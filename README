@@ -1,0 +1,8 @@
+Provides searchable index of public submissions collected by Henry Tax Review, aka Australia's Future Tax System.
+
+Prerequisites: 
+* Python 2.5 and mechanize and pdfminer modules
+* Xapian Omega
+
+See Makefile.
+
