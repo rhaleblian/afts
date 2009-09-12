@@ -60,7 +60,7 @@ for round in range(1,4):
     for link in b.links(url_regex='pdf$'):
 
         u = b.click_link(link).get_full_url()
-        print "link: ", u
+#        print "link: ", u
         try:
             f = urllib2.urlopen(u)
         except:

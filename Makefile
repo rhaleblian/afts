@@ -16,7 +16,7 @@ sync:
 	./doc-sync.py
 
 upload:
-	rsync -rv www/html/ haleblia@haleblian.com:www/ray/taxreview/html/
+	rsync -r www/html/ haleblia@haleblian.com:www/ray/taxreview/html/
 
 index:
 	ssh haleblia@haleblian.com omindex --db $(DB) www/ray taxreview/html
