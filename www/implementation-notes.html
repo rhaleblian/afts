@@ -5,12 +5,12 @@
 </head>
 <body bgcolor="#eeeeff">
 <h2>Methodology</h2>
-<p>
-All PDFs were scraped up by to a local folder via the 'wget' program on OS X.
 
-The PDFs were all converted to HTML with 'pdftohtml' (OS X) so that they could be indexed. This is why the results page is missing links to the original PDFs.
+<p>In the very first formulation of this service, all PDFs were scraped up by to a local folder via the 'wget' program on OS X. Those PDFs were all converted to HTML with 'pdftohtml' (OS X) so that they could be indexed.</p>
 
-HTML indexed with 'omindex'.
+<p>Since then, a sync program has been written in python that processes any new documents available on the original site and converts them to be added to the search index.</p>
+
+<p>Xapian is the underlying search engine framework, and Omega is the layer above it that provides indexing control via 'omindex'.
 </p>
 
 <h2>Ideas</h2>
@@ -21,7 +21,7 @@ HTML indexed with 'omindex'.
 <li>fix text encoding errors when converting to HTML<br/><b>done.</b></li>
 <li>have proper titles and link to the original PDF</li>
 <li>highlight terms in proper context with page reference in PDF<br/><b>done (in HTML).</b></li>
-<li>result counts by important terms</li>
+<li>result counts by important terms<br/><b>done.</b></li>
 <li>tag clouds by term frequencies</li>
 </ul>
 Most importantly it's a question of what's needed. Send me ideas.

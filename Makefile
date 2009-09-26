@@ -12,6 +12,9 @@ default:
 	echo Available rules: sync upload index install
 	echo See Makefile.
 
+htdocs:
+	rsync -v www/*.html haleblia@haleblian.com:www/ray/taxreview/
+
 sync:
 	./doc-sync.py
 
