@@ -4,7 +4,7 @@ Deployment:
 http://ray.haleblian.com/taxreview
 
 Prerequisites: 
-* Python 2.5 and mechanize and pdfminer modules
+* Python 2.5 with python-cdb, mechanize and pdfminer modules
 * Xapian Omega
 * GNU Make
 
