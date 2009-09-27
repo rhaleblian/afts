@@ -10,11 +10,10 @@ OMEGALIB=opt/var/lib/omega
 DB=$(OMEGALIB)/data/default
 # end site-specific parameters
 
-default:
-	echo See Makefile.
+default: install convert upload index
 
-sync:
-	./doc-sync.py
+convert:
+	./convert.py
 
 upload-cdb:
 	rsync -r omega/cdb/ $(REMOTE):$(OMEGALIB)/cdb/
@@ -22,9 +21,12 @@ upload-cdb:
 upload: upload-cdb
 	rsync -r www/html/ $(REMOTE):$(BASEHREF)/html/
 
+update: convert upload
+
 index:
 	ssh $(REMOTE) omindex --db $(DB) www/ray taxreview/html
 
 install:
 	rsync -dv --delete www/* $(REMOTE):$(BASEHREF)/
 	rsync -r omega/ $(REMOTE):$(OMEGALIB)/
+
