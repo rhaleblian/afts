@@ -3,6 +3,7 @@
 import re
 import time
 import os
+import cdb
 import urllib2
 import StringIO
 from mechanize import Browser
@@ -53,6 +54,7 @@ def pdf_to_csv(filename):
 
     return outfp.getvalue()
 
+db = cdb.cdbmake('omega/cdb/pdfurl','pdfurl.tmp')
 b = Browser()
 for round in range(1,4):
     url = 'http://taxreview.treasury.gov.au/content/submission.aspx?round=' + str(round)
@@ -60,7 +62,7 @@ for round in range(1,4):
     for link in b.links(url_regex='pdf$'):
 
         u = b.click_link(link).get_full_url()
-#        print "link: ", u
+        #print "link: ", u
         try:
             f = urllib2.urlopen(u)
         except:
@@ -69,10 +71,16 @@ for round in range(1,4):
         remotefile = re.search('[^/]+$',u).group(0)
         remotetime = time.mktime(f.info().getdate('Last-Modified'))
 
-        base = re.search('[^\.]+',remotefile).group(0)
+        #base = re.search('[^\.]+',remotefile).group(0)
+        base = re.search('(.+)\.pdf$',remotefile).group(1)
+        print base
         localhtml = 'www/html/' + str(round) + '/' + base + '.html'
         localpdf = 'pdf/' + str(round) + '/' + base + '.pdf'
         localtime = 0
+
+        # FIXME: not portable or maintainable.
+        url_h = '/taxreview/html/' + str(round) + '/' + base + '.html'
+        db.add(url_h,u)
 
         have = 1
         try:
@@ -90,4 +98,6 @@ for round in range(1,4):
             #print pdf_to_csv('www/pdf/' + str(round) + '/' + remotefile)
             os.system('pdftohtml -noframes ' + localpdf + ' ' + localhtml)
             print 'Fetched and converted ' + remotefile + '.'
+
+db.finish()
 
