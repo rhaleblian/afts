@@ -1,6 +1,8 @@
 Provides searchable index of public submissions collected by The Henry Tax Review, aka Australia's Future Tax System.
 
-The full update cycle would look like
+The full data update cycle is encapsulated as
+
+	make all
 
 Deployment:
 http://ray.haleblian.com/taxreview
