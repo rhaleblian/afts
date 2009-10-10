@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-
+'''
+Download any new submissions and convert them for indexing.
+'''
 import re
 import time
 import os

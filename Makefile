@@ -30,3 +30,5 @@ install:
 	rsync -dv --delete www/* $(REMOTE):$(BASEHREF)/
 	rsync -r omega/ $(REMOTE):$(OMEGALIB)/
 
+all: convert upload index install
+
